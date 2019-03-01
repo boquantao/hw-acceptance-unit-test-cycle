@@ -1,0 +1,21 @@
+-#  This file is app/views/movies/director.html.haml
+%h2 Movies of Director #{@movie.director}
+
+%table.table-striped.col-md-10#movies
+  %thead
+    %tr
+      %th Title
+      %th Rating
+      %th Release Date
+      %th Director
+      %th More Info
+  %tbody
+    - @movies.each do |movie|
+      %tr
+        %td= movie.title
+        %td= movie.rating
+        %td= movie.release_date
+        %td= movie.director
+        %td= link_to "More about #{movie.title}", movie_path(movie)
+
+= link_to 'Back to Homepage', movies_path
